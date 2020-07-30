@@ -1,0 +1,31 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 text-center" id="top-bar">
+            <img src="../assets/img/burger.png" alt="burger" />
+            <h1> Eat-A-Burger </h1>
+        </div>
+        <div class="col">
+            <form class="devour-form button-size">
+                <input input type="hidden" class="burger_is" type="text" value={{this.id}}><br>
+            </form>
+        </div>
+        <div class="col-md-6" class="task">
+            {{#each burgers}}
+            {{#unless this.devoured}}
+            <div>
+                {{this.id}}. {{this.burger_name}} <button type="submit" class="btn btn-primary">Devour It!</button>
+            </div>
+            {{/unless}}
+            {{/each}}
+        </div>
+        <div class="col-md-6" class="task">
+            {{#each burgers}}
+            {{#if this.devoured}}
+            <div>
+                {{this.id}}. {{this.burger_name}} <button type="submit" class="btn btn-primary">Devour It!</button>
+            </div>
+            {{/if}}
+            {{/each}}
+        </div>
+    </div>
+</div>
