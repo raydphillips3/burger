@@ -6,8 +6,8 @@ var burgerTime = {
         cb(res);
       });
     },
-    insertOne: function(cols, vals, cb) {
-      orm.create("burgers", cols, vals, function(res) {
+    insertOne: function(obj, cb) {
+      orm.create("burgers", obj, function(res) {
         cb(res);
       });
     },

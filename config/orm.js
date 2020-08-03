@@ -10,20 +10,22 @@ var orm = {
         });
     },
 
-    insertOne: function (cb) {
-        var sql = "INSERT INTO burgers (name, address) VALUES ('XXXX', 'XXXXX')";
-        connection.query(sql, function (err, result) {
+    create: function (db, obj, cb) {
+        var sql = "INSERT INTO ?? SET ?";
+        connection.query(sql, [db, obj], function (err, result) {
             if (err) throw err;
             console.log("1 record inserted");
+            cb();
         });
     },
 
 
-    updateOne: function (cb) {
-        var sql = "UPDATE burgers_db SET devoured = true WHERE id = 'XX'";
-        connection.query(sql, function (err, result) {
+    update: function (db, col, id, cb) {
+        var sql = "UPDATE ?? SET ?? = true WHERE `id` = ?";
+        connection.query(sql, [db, col, id], function (err, result) {
             if (err) throw err;
             console.log(result.affectedRows + " record(s) updated");
+            cb();
         });
     }
 }

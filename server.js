@@ -6,11 +6,11 @@ var port = 3000;
 
 const app = express();
 
+app.use(express.static("assets"));
+
 app.use(express.json());
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
-
-
 app.use(routes);
 
 connection.connect(function (err) {
