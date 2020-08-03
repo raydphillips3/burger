@@ -6,7 +6,7 @@
         </div>
         <div class="col-md-12 text-center">
             <form class="devour-form button-size" id="createBurger">
-                <input input class="burger_is" type="text" value={{this.id}}><br>
+                <input class="burger_is" type="text" value="{{this.id}}" /><br />
                 <button type="submit" class="btn btn-primary" id="burgerBtn">Submit</button>
             </form>
         </div>
@@ -14,20 +14,21 @@
     <div class="row" id="burgerList" style="padding: 50px;">
         <div class="col-md-6" class="task" name="id">
             {{#each burgers}}
-            {{#if this.devoured}}
+            {{#unless this.devoured}}
             <div>
-               <option value="{{this.id}}">{{this.id}}. {{this.burger_name}}</option> <button type="submit" class="btn btn-primary" id="devBtn">Devour It!</button>
+               <span value="{{this.id}}">{{this.id}}. {{this.burger_name}}</span> 
+               <button type="submit" class="btn btn-primary devBtn"  data-id="{{ this.id }}">Devour It!</button>
             </div>
-            {{/if}}
+            {{/unless}}
             {{/each}}
         </div>
         <div class="col-md-6" class="task">
             {{#each burgers}}
-            {{#unless this.devoured}}
+            {{#if this.devoured}}
             <div>
                 {{this.id}}. {{this.burger_name}}<span id="devoured">devoured</span>
             </div>
-            {{/unless}}
+            {{/if}}
             {{/each}}
         </div>
     </div>

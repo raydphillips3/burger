@@ -11,7 +11,8 @@ var orm = {
     },
 
     create: function (db, obj, cb) {
-        var sql = "INSERT INTO ?? SET ??";
+        var sql = "INSERT INTO ?? SET ?";
+        console.log("This is the obj ", obj);
         connection.query(sql, [db, obj], function (err, result) {
             if (err) throw err;
             console.log("1 record inserted");

@@ -6,9 +6,12 @@ var port = process.env.PORT || 3000;
 
 const app = express();
 
+
 app.use(express.static("assets"));
 
 app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
+
 app.engine('handlebars', exphbs({ defaultLayout: 'main' }));
 app.set('view engine', 'handlebars');
 app.use(routes);
