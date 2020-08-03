@@ -2,7 +2,7 @@ const express = require("express");
 var exphbs = require("express-handlebars");
 var routes = require("./controllers/burgers_controller");
 var connection = require("./config/connection");
-var port = 3000;
+var port = process.env.PORT || 3000;
 
 const app = express();
 
